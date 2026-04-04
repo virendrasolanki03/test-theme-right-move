@@ -1330,12 +1330,3 @@ class CartPerformance {
     );
   }
 }
-document.addEventListener("DOMContentLoaded", function() {
-
- var endlessScroll = new Ajaxinate({
-
-  container: '#ProductGridContainer', pagination: '#AjaxinatePagination'
-
- });
-
-});
