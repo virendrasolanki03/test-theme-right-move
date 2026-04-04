@@ -5,13 +5,6 @@ class FacetFiltersForm extends HTMLElement {
 
     this.debouncedOnSubmit = debounce((event) => {
       this.onSubmitHandler(event);
-          function callbackInfiniteScroll(){}
-        var endlessScroll = new Ajaxinate({
-          container: '#product-grid',
-          pagination: '#infinite-pagination',
-          loadingText: 'Loading More....',
-          callback: callbackInfiniteScroll
-        });
     }, 800);
 
     const facetForm = this.querySelector('form');
