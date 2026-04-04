@@ -5,7 +5,15 @@ class FacetFiltersForm extends HTMLElement {
 
     this.debouncedOnSubmit = debounce((event) => {
       this.onSubmitHandler(event);
-      debugger
+        const oldScript = document.getElementById("loadmore-script");
+
+        if (oldScript) oldScript.remove();
+
+        const script = document.createElement("script");
+        script.src = "/assets/loadmore.js?v=" + Date.now();
+        script.id = "loadmore-script";
+
+        document.body.appendChild(script);
     }, 800);
 
     const facetForm = this.querySelector('form');
