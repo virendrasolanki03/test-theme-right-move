@@ -281,11 +281,11 @@
               {% endif %}
             </ul>
 
-            {%- if paginate.next -%}
-              <div id="scroll-trigger">
-                <a href="{{ paginate.next.url }}"></a>
-              </div>
-            {%- endif -%}
+           <div id="infinite-pagination">
+     {% if paginate.next %}
+     <a href="{{ paginate.next.url }}">Loading More</a>
+     {% endif %}  
+ </div>
           </div>
         {%- endif -%}
       </div>
