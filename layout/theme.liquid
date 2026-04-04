@@ -375,5 +375,26 @@
     {%- endif -%}
 
   <script src="https://unpkg.com/ajaxinate@3.0.1/ajaxinate.min.js"></script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  setTimeout(function () {
+
+    if (typeof Ajaxinate === "undefined") {
+      console.error("❌ Ajaxinate still not loaded");
+      return;
+    }
+
+    new Ajaxinate({
+      container: "#AjaxinateLoop",
+      pagination: "#AjaxinatePagination",
+      loadingText: "Loading..."
+    });
+
+  }, 500); // 🔥 delay added
+
+});
+</script>
   </body>
 </html>
