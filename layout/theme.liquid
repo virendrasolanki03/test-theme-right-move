@@ -376,14 +376,14 @@
 
      <script src="{{ 'ajaxinate.min.js' | asset_url }}"  id="loadmore-script"></script>
 
-     <script type="text/javascript">
-  function callbackInfiniteScroll(){}
-    var endlessScroll = new Ajaxinate({
-       container: '#product-grid',
-       pagination: '#infinite-pagination',
-      loadingText: 'Loading More....',
-      callback: callbackInfiniteScroll
-    });
+     <script type="text/javascript" id="loadmore">
+      function callbackInfiniteScroll(){}
+        var endlessScroll = new Ajaxinate({
+          container: '#product-grid',
+          pagination: '#infinite-pagination',
+          loadingText: 'Loading More....',
+          callback: callbackInfiniteScroll
+        });
 </script>
   </body>
 </html>
