@@ -1330,7 +1330,7 @@ class CartPerformance {
     );
   }
 }
-document.addEventListener("DOMContentLoaded", () => {
+function initInfiniteScroll() {
   const grid = document.getElementById("product-grid");
   const trigger = document.getElementById("scroll-trigger");
 
@@ -1351,8 +1351,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = await res.text();
       const html = new DOMParser().parseFromString(text, "text/html");
       const items = html.querySelectorAll("#product-grid .grid__item");
+
       items.forEach(item => grid.appendChild(item));
+
       const newTrigger = html.querySelector("#scroll-trigger");
+
       if (newTrigger) {
         trigger.innerHTML = newTrigger.innerHTML;
       } else {
@@ -1376,4 +1379,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   observer.observe(trigger);
-});
+}
