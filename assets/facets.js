@@ -5,15 +5,13 @@ class FacetFiltersForm extends HTMLElement {
 
     this.debouncedOnSubmit = debounce((event) => {
       this.onSubmitHandler(event);
-        const oldScript = document.getElementById("loadmore-script");
-
-        if (oldScript) oldScript.remove();
-
-        const script = document.createElement("script");
-        script.src = "/assets/loadmore.js?v=" + Date.now();
-        script.id = "loadmore-script";
-
-        document.body.appendChild(script);
+          function callbackInfiniteScroll(){}
+        var endlessScroll = new Ajaxinate({
+          container: '#product-grid',
+          pagination: '#infinite-pagination',
+          loadingText: 'Loading More....',
+          callback: callbackInfiniteScroll
+        });
     }, 800);
 
     const facetForm = this.querySelector('form');
