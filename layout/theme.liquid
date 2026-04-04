@@ -375,5 +375,17 @@
     {%- endif -%}
 
      <script src="{{ 'ajaxinate.min.js' | asset_url }}"  id="loadmore-script"></script>
+
+     <script type="text/javascript">
+  function callbackInfiniteScroll(){}
+  document.addEventListener("DOMContentLoaded", function() {
+    var endlessScroll = new Ajaxinate({
+       container: '#ProductGridContainer',
+       pagination: '#infinite-pagination',
+      loadingText: '<center><img src="{{ 'loading.gif' | asset_url }}" al="loading"></center>',
+      callback: callbackInfiniteScroll
+    });
+  });
+</script>
   </body>
 </html>
