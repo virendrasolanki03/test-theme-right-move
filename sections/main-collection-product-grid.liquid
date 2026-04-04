@@ -282,14 +282,10 @@
             </ul>
 
             <div id="AjaxinatePagination">
-
-{% if paginate.next %}
-
-<a href="{{ paginate.next.url }}">Loading More</a>
-
-{% endif %}
-
-</div>
+            {% if paginate.next %}
+            <a href="{{ paginate.next.url }}">Loading More</a>
+            {% endif %}
+            </div>
           </div>
         {%- endif -%}
       </div>

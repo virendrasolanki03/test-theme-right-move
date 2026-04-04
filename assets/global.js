@@ -1330,53 +1330,12 @@ class CartPerformance {
     );
   }
 }
-function initInfiniteScroll() {
-  const grid = document.getElementById("product-grid");
-  const trigger = document.getElementById("scroll-trigger");
+document.addEventListener("DOMContentLoaded", function() {
 
-  if (!grid || !trigger) return;
+ var endlessScroll = new Ajaxinate({
 
-  let loading = false;
+  container: '#ProductGridContainer', pagination: '#AjaxinatePagination'
 
-  const loadMore = async () => {
-    if (loading) return;
+ });
 
-    const link = trigger.querySelector("a");
-    if (!link) return;
-
-    loading = true;
-
-    try {
-      const res = await fetch(link.href);
-      const text = await res.text();
-      const html = new DOMParser().parseFromString(text, "text/html");
-      const items = html.querySelectorAll("#product-grid .grid__item");
-
-      items.forEach(item => grid.appendChild(item));
-
-      const newTrigger = html.querySelector("#scroll-trigger");
-
-      if (newTrigger) {
-        trigger.innerHTML = newTrigger.innerHTML;
-      } else {
-        trigger.remove();
-        observer.disconnect();
-      }
-
-    } catch (e) {
-      console.error("Scroll error:", e);
-    }
-
-    loading = false;
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      loadMore();
-    }
-  }, {
-    rootMargin: "300px"
-  });
-
-  observer.observe(trigger);
-}
+});
