@@ -296,7 +296,7 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-         <script src="{{ 'ajaxinate.min.js' | asset_url }}" defer="defer"></script>
+   {{ 'ajaxinate.min.js' | asset_url | script_tag }}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
