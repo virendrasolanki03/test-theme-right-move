@@ -281,11 +281,15 @@
               {% endif %}
             </ul>
 
-            {%- if paginate.next -%}
-              <div id="scroll-trigger">
-                <a href="{{ paginate.next.url }}"></a>
-              </div>
-            {%- endif -%}
+            <div id="AjaxinatePagination">
+
+{% if paginate.next %}
+
+<a href="{{ paginate.next.url }}">Loading More</a>
+
+{% endif %}
+
+</div>
           </div>
         {%- endif -%}
       </div>
