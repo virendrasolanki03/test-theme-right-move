@@ -5,6 +5,7 @@ class FacetFiltersForm extends HTMLElement {
 
     this.debouncedOnSubmit = debounce((event) => {
       this.onSubmitHandler(event);
+      debugger
     }, 800);
 
     const facetForm = this.querySelector('form');
@@ -291,7 +292,7 @@ class FacetFiltersForm extends HTMLElement {
         : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
     FacetFiltersForm.renderPage(url);
   }
-  debugger
+  
 }
 
 FacetFiltersForm.filterData = [];
