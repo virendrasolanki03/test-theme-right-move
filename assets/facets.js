@@ -291,6 +291,7 @@ class FacetFiltersForm extends HTMLElement {
         : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
     FacetFiltersForm.renderPage(url);
   }
+  debugger
 }
 
 FacetFiltersForm.filterData = [];
