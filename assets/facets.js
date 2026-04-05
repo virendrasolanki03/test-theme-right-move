@@ -100,7 +100,6 @@ class FacetFiltersForm extends HTMLElement {
     if (window.endlessScroll && typeof window.endlessScroll.destroy === 'function') {
       window.endlessScroll.destroy();
     }
-    debugger
     window.endlessScroll = new Ajaxinate({
       container: '#product-grid',
       pagination: '#infinite-pagination',
