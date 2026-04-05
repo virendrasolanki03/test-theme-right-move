@@ -66,6 +66,7 @@ class FacetFiltersForm extends HTMLElement {
         FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
         FacetFiltersForm.renderFilters(html, event);
         FacetFiltersForm.renderProductGridContainer(html);
+        FacetFiltersForm.reinitializeInfinitePagination();
         FacetFiltersForm.renderProductCount(html);
         if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
       });
@@ -75,6 +76,7 @@ class FacetFiltersForm extends HTMLElement {
     const html = FacetFiltersForm.filterData.find(filterDataUrl).html;
     FacetFiltersForm.renderFilters(html, event);
     FacetFiltersForm.renderProductGridContainer(html);
+    FacetFiltersForm.reinitializeInfinitePagination();
     FacetFiltersForm.renderProductCount(html);
     if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
   }
@@ -90,6 +92,21 @@ class FacetFiltersForm extends HTMLElement {
       .forEach((element) => {
         element.classList.add('scroll-trigger--cancel');
       });
+  }
+
+  static reinitializeInfinitePagination() {
+    if (typeof Ajaxinate !== 'function') return;
+
+    if (window.endlessScroll && typeof window.endlessScroll.destroy === 'function') {
+      window.endlessScroll.destroy();
+    }
+
+    window.endlessScroll = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '#infinite-pagination',
+      loadingText: 'Loading More....',
+      callback: typeof callbackInfiniteScroll === 'function' ? callbackInfiniteScroll : null,
+    });
   }
 
   static renderProductCount(html) {
