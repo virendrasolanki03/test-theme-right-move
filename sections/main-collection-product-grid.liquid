@@ -239,7 +239,12 @@ div#infinite-pagination a {
             >
               {{ productgrid }}
               {% if tagbasedfilter %}
-                {%- for product in collection.products -%}
+              {% if paginate.current_page == 1 %}
+              {% assign pagelimit = 5 %}
+              {%  else %}
+              {% assign pagelimit = 20 %}
+              {% endif %}
+                {%- for product in collection.products limit: pagelimit -%}
                   {% unless product.tags contains 'featured' %}
                     {%- assign lazy_load = false -%}
                     {%- if shown_count > 2 -%}{%- assign lazy_load = true -%}{%- endif -%}
