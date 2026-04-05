@@ -119,12 +119,13 @@ div#infinite-pagination a {
 {% endpaginate %}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
-  {%  if paginate.current_page == 1 %}
-    {% assign pagelimit = 5 %}
+ {% assign pagelimit = 5 %}
+  {%- paginate collection.products by pagelimit -%}
+      {% if paginate.current_page == 1 %}
+   
   {%  else %}
     {% assign pagelimit = 20 %}
   {% endif %}
-  {%- paginate collection.products by pagelimit -%}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
         <form class="facets-vertical-form" id="FacetSortForm">
