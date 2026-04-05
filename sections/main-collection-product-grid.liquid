@@ -56,6 +56,18 @@
 
   .load-more-btn:hover { background-color: #333; }
   .load-more-btn:disabled { background-color: #999; cursor: not-allowed; }
+
+  div#infinite-pagination {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+div#infinite-pagination a {
+    text-transform: none;
+    text-decoration: none;
+    color: black;
+}
 {%- endstyle -%}
 
 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
